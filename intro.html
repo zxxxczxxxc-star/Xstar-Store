@@ -1,1 +1,240 @@
-# Xstar
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>XSTARSHOP</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  body {
+    position: relative;
+    background-color: #000;
+  }
+
+  .bg {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    filter: grayscale(35%) brightness(0.55);
+  }
+
+  .overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    z-index: 1;
+  }
+
+  .topbar {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 3px;
+    width: 90px;
+    background: #000000;
+    border-radius: 0 0 4px 4px;
+    z-index: 5;
+  }
+
+  .center {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .logo-box {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .logo-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .logo-label {
+    font-size: 12px;
+    letter-spacing: 6px;
+    color: #f2f2f2;
+    font-weight: 700;
+    margin-bottom: 36px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .logo-label .line {
+    width: 36px;
+    height: 1px;
+    background: #555;
+  }
+
+  /* Typewriter title */
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #111111;
+  }
+
+  .title {
+    --letter-gap: 14px;
+    font-family: 'Arial Black', Arial, sans-serif;
+    font-weight: 900;
+    font-style: italic;
+    font-size: 76px;
+    letter-spacing: var(--letter-gap);
+    color: #fafafa;
+    display: flex;
+    align-items: center;
+    line-height: 1;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .title .typed {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 0;
+    animation: typeLoop 6s steps(9, end) infinite;
+  }
+
+  .title .cursor {
+    display: inline-block;
+    width: 4px;
+    height: 60px;
+    background: #fafafa;
+    margin-left: 16px;
+    animation: blink 0.9s step-end infinite;
+  }
+
+  @keyframes typeLoop {
+    0%   { width: 0; }
+    30%  { width: calc(9.5ch + 12 * var(--letter-gap)); }
+    60%  { width: calc(9.5ch + 12 * var(--letter-gap)); }
+    90%  { width: 0; }
+    100% { width: 0; }
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  @media (max-width: 800px) {
+    .title { font-size: 42px; --letter-gap: 8px; }
+    .title .cursor { height: 34px; }
+  }
+
+  .enter-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 52px;
+    padding: 14px 36px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 99px;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: background .25s, border-color .25s, transform .18s, box-shadow .25s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .enter-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0) 100%);
+    opacity: 0;
+    transition: opacity .25s;
+  }
+
+  .enter-btn:hover {
+    border-color: rgba(255,255,255,0.6);
+    box-shadow: 0 0 32px rgba(255,255,255,0.08), 0 8px 24px rgba(0,0,0,0.5);
+    transform: translateY(-2px);
+  }
+
+  .enter-btn:hover::before { opacity: 1; }
+
+  .enter-btn:active { transform: translateY(0px); }
+
+  .enter-arrow {
+    display: flex;
+    align-items: center;
+    transition: transform .2s;
+  }
+
+  .enter-btn:hover .enter-arrow { transform: translateX(4px); }
+</style>
+</head>
+<body>
+
+<img class="bg" src="https://cdn.discordapp.com/attachments/1513936934802821365/1516126375789072586/Zippo_Git_Em_GIF_-_Zippo_Git_Em_Steve_Dave_-_Discover__Share_GIFs.gif?ex=6a318238&is=6a3030b8&hm=25e8b60ab4b51f643bec1c1eb40d103d213e5743645b4455ab5610bd31bbb4c0&">
+<div class="overlay"></div>
+
+<div class="topbar"></div>
+
+<div class="center">
+
+  <!-- Logo box is empty by default. To show a logo, add an image inside:
+       <div class="logo-box"><img src="https://cdn.discordapp.com/attachments/1513936934802821365/1516091613468819637/102_20260605145931.png?ex=6a3161d8&is=6a301058&hm=7400b2c9c11937d5a3c02127fbf07dcc66eae042e2f4fcf0039c449670e251d4&g" alt="logo"></div> -->
+  <div class="logo-box"></div>
+
+  <div class="logo-label">
+    <span class="line"></span>
+    XSTARSHOP
+    <span class="line"></span>
+  </div>
+
+  <div class="title">
+    <span class="typed">XSTARSHOP</span>
+    <span class="cursor"></span>
+  </div>
+
+  <a class="enter-btn" href="member.html">
+    ENTER
+    <span class="enter-arrow">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+    </span>
+  </a>
+
+</div>
+
+</body>
+</html>
